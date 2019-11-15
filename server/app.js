@@ -1,15 +1,12 @@
 const express = require('express')
 const app = express()
-const router = express.Router()
-const goodsData = require('./mock/good.json')
 
-router.get('/goods', function (req, res, next) {
-  res.json(goodsData)
-})
+const goodsRouter = require('./router/goods')
+const teamRouter = require('./router/team')
 
-app.use(router)
+app.use(goodsRouter)
+app.use(teamRouter)
 
 app.listen(3000, function () {
   console.log(`接口已启动,请访问3000端口`);
-
 })
